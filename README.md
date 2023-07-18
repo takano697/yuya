@@ -1,2 +1,2 @@
 # yuya
-[3d](../../pages/js/index.html)
+[3d](../../yuya/pages/js/index.html)
