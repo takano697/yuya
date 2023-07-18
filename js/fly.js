@@ -46,7 +46,7 @@
           
         // Load GLTF or GLB
         const loader = new THREE.GLTFLoader();
-        const url = 'pc.glb';
+        const url = 'house.glb';
      
         // window size
         const w_height = window.innerHeight;
