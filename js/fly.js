@@ -23,7 +23,7 @@
        camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
             
         camera.position.set(0, 150, 0);
-        camera.lookAt(-10,100,0);
+        camera.lookAt(-10,150,0);
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
         controls.rollSpeed = Math.PI / 10;   //回転速度
@@ -36,7 +36,7 @@
            var delta = clock.getDelta();  
             controls.update(delta);  
               camera.position.set(0, 150, 0);
-               camera.lookAt(-10,100,0);
+               camera.lookAt(-10,150,0);
             }
           };
      
