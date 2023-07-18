@@ -25,8 +25,8 @@
         camera.position.set(0, 100, 500);
         camera.lookAt(0,0,0);
         var controls = new THREE.FlyControls(camera); 
-        controls.movementSpeed = 1500;	//移動速度
-        controls.rollSpeed = Math.PI / 4;   //回転速度
+        controls.movementSpeed = 1000;	//移動速度
+        controls.rollSpeed = Math.PI / 10;   //回転速度
         controls.dragToLook = true;
        
      // カメラ位置をリセットするためのメニュー項目
