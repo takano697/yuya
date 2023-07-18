@@ -22,7 +22,7 @@
         
        camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
             
-        camera.position.set(0, 100, 500);
+        camera.position.set(0, 100, 0);
         camera.lookAt(0,0,0);
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
@@ -35,7 +35,7 @@
             resetCamera: function() {
            var delta = clock.getDelta();  
             controls.update(delta);  
-              camera.position.set(0, 100, 500);
+              camera.position.set(0, 100, 0);
                camera.lookAt(0,0,0);
             }
           };
@@ -56,8 +56,8 @@
             url,
             function (gltf) {
                 model = gltf.scene;
-                model.scale.set(100.0, 100.0, 100.0);
-                model.position.set(0, (w_height / 3 * -1), 0);
+                model.scale.set(150.0, 150.0, 150.0);
+                model.position.set(0, 0, 0);
                 scene.add(gltf.scene);
             },
              function (error) {
