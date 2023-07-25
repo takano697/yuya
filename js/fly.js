@@ -46,7 +46,7 @@
           
         // Load GLTF or GLB
         const loader = new THREE.GLTFLoader();
-        const url = 'school.glb';
+        const url = 'school2.glb';
      
         // window size
         const w_height = window.innerHeight;
