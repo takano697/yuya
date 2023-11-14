@@ -136,9 +136,9 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
      
-           if (model !== null) {
-                console.log(model);
-            }
+           //if (model !== null) {
+               // console.log(model);
+           // }
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
