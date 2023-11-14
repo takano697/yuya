@@ -50,7 +50,13 @@
      
         // window size
         const w_height = window.innerHeight;
-     
+
+ 	const geometry = new THREE.SphereGeometry( 5.0, 30, 30 );
+	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
+	const sphere = new THREE.Mesh(geometry, material);
+	sphere.position.set(130, 130, 20);
+	    scene.add(sphere);
+	    
         let model;
         loader.load(
             url,
