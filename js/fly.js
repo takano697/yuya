@@ -65,13 +65,13 @@
                 model = gltf.scene;
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
-		 for(let i = 0; i < model.children.length; i++){
+		// for(let i = 0; i < model.children.length; i++){
  
-        let mesh = model.children[i];
+       // let mesh = model.children[i];
  
         //コンソールにMeshの名前一覧を出力。
-        console.log(i,mesh.name);
-    }
+        //console.log(i,mesh.name);
+    //}
                 scene.add(gltf.scene);
             },
              function (error) {
