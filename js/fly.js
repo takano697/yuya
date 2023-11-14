@@ -55,6 +55,8 @@
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
 	sphere.position.y = 150;
+	sphere.position.x = -200;
+	sphere.position.z = -100;
 	    
 	    sphere.name ='sphere';
 	    
