@@ -22,7 +22,7 @@
         
        camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
             
-        camera.position.set(100, 150, 0);
+        camera.position.set(-100, 150, 0);
         camera.lookAt(-10,150,0);
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
