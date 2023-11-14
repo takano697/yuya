@@ -140,7 +140,7 @@
                // console.log(model);
            // }
             raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(model.children,false);
+                    const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(intersects[0].name);
