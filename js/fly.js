@@ -51,7 +51,7 @@
         // window size
         const w_height = window.innerHeight;
 
- 	const geometry = new THREE.SphereGeometry( 8.0, 30, 30 );
+ 	const geometry = new THREE.SphereGeometry( 8.0, 10, 10 );
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
 	sphere.position.set(200, 130, 50);
