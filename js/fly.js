@@ -58,6 +58,7 @@
                 model = gltf.scene;
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
+		    console.log(model.children.name);
                 scene.add(gltf.scene);
             },
              function (error) {
