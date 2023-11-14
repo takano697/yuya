@@ -137,8 +137,8 @@
             controls.update(delta);  
      
            // if (model !== null) {
-                console.log(model);
-            }
+               // console.log(model);
+           // }
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
