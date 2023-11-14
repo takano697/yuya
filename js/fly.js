@@ -54,7 +54,7 @@
  	const geometry = new THREE.SphereGeometry( 8.0, 5, 5 );
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
-	sphere.position.set(3.3, 3, 2.5);
+	sphere.position.y = 3;
 	    scene.add(sphere);
 	    sphere.name ='sphere';
 	    
@@ -65,7 +65,6 @@
                 model = gltf.scene;
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
-		sphere.position.set(3.3, 3, 2.5);
 		// for(let i = 0; i < model.children.length; i++){
  
        // let mesh = model.children[i];
