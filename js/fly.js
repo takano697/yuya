@@ -65,6 +65,7 @@
                 model = gltf.scene;
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
+		sphere.position.set(3.3, 3, 2.5);
 		// for(let i = 0; i < model.children.length; i++){
  
        // let mesh = model.children[i];
