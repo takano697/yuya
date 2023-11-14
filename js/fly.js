@@ -51,7 +51,7 @@
         // window size
         const w_height = window.innerHeight;
      
-        let model = null;
+        let model;
         loader.load(
             url,
             function (gltf) {
