@@ -55,7 +55,7 @@
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
 	sphere.position.y = 3;
-	    scene.add(sphere);
+	    
 	    sphere.name ='sphere';
 	    
         let model;
@@ -72,7 +72,7 @@
         //コンソールにMeshの名前一覧を出力。
         //console.log(i,mesh.name);
     //}
-                scene.add(gltf.scene);
+                scene.add(gltf.scene, sphere);
             },
              function (error) {
                 console.log('An error happened');
