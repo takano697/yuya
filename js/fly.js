@@ -135,7 +135,7 @@
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
-                        if(obj.name == 'DoorFrame001' || obj.name == 'Door001'){
+                        if(obj.name == 'DoorFrame.001' || obj.name == 'Door.001'){
                            if(moveFlg){
                             clickFlg = true;
                             }
