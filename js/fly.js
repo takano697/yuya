@@ -59,7 +59,6 @@
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
                 scene.add(gltf.scene);
-                console.log(Object.keys(model));
             },
              function (error) {
                 console.log('An error happened');
@@ -82,9 +81,46 @@
         //環境光源(アンビエントライト)：すべてを均等に照らす、影のない、全体を明るくするライト
         const ambient = new THREE.AmbientLight(0xf8f8ff, 0.7);
         scene.add(ambient); //シーンにアンビエントライトを追加
-     
-        var clock = new THREE.Clock();
+        let mouse;
+        let raycaster;
+        let clickFlg = false;
+        let moveFlg = false;
+		let count = 0;
+		mouse = new THREE.Vector2();
+        raycaster = new THREE.Raycaster();
+                function setControll(){
+                    
+                    canvas.addEventListener('pointermove',handleMouseMove);
+                    canvas.addEventListener('click',handleClick);
+                    function handleMouseMove(event){
+                        moveFlg = true;
+                        const element = event.currentTarget;
+                        const x = event.clientX - element.offsetLeft;
+                        const y = event.clientY - element.offsetTop;
+                        const w = element.offsetWidth;
+                        const h = element.offsetHeight;
+                        mouse.x = (x/w)*2-1;
+                        mouse.y = -(y/h)*2+1;
+                    }
+                    function handleClick(event){
+                        if(clickFlg && count == 0){
+                        const element =document.createElement('div'); 
+			element.id = "info";
+			element.innerHTML = "hogehoge"; 
+			document.getElementById('main_canvas').appendChild(element);
+		        count = 1;
+				 
+				clickFlg=false;
+                         }else{
+				document.getElementById('info').remove();
+				count = 0;
+                            clickFlg = false;
+                        }
+                    }
+                }
+        const clock = new THREE.Clock();
         // 初回実行
+        setControll();
         tick();
      
         function tick() {
@@ -95,6 +131,26 @@
             if (model !== null) {
                 console.log(model);
             }
+            raycaster.setFromCamera(mouse,camera);
+                    const intersects = raycaster.intersectObjects(scene.children,false);
+                    if(intersects.length > 0){
+                        const obj = intersects[0].object;
+                        if(obj.name == 'DoorFrame.001'){
+                           if(moveFlg){
+                            clickFlg = true;
+                            }
+                             }else{
+                                clickFlg = false;
+                                }
+                        }else{
+			    
+                            clickFlg = false;
+		    }
+			if(clickFlg){
+    			canvas.style.cursor = 'pointer';
+   			 }else{
+    			canvas.style.cursor = 'grab';
+			    }		
             renderer.render(scene, camera);
             requestAnimationFrame(tick);
         }
