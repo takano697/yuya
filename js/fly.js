@@ -51,11 +51,12 @@
         // window size
         const w_height = window.innerHeight;
 
- 	const geometry = new THREE.SphereGeometry( 5.0, 30, 30 );
+ 	const geometry = new THREE.SphereGeometry( 8.0, 30, 30 );
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
-	sphere.position.set(130, 130, 20);
+	sphere.position.set(200, 130, 50);
 	    scene.add(sphere);
+	    sphere.name ='sphere';
 	    
         let model;
         loader.load(
@@ -150,7 +151,7 @@
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(obj.name);
-                        if(obj.name == 'Door_Group001' || obj.name == 'Door.001'){
+                        if(obj.name == 'sphere'){
                            if(moveFlg){
                             clickFlg = true;
                             }
