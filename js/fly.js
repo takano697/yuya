@@ -59,6 +59,7 @@
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
                 scene.add(gltf.scene);
+                console.log(Object.keys(model));
             },
              function (error) {
                 console.log('An error happened');
