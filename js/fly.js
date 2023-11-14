@@ -136,7 +136,7 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
      
-            if (model !== null) {
+           // if (model !== null) {
                 console.log(model);
             }
             raycaster.setFromCamera(mouse,camera);
