@@ -54,7 +54,7 @@
  	const geometry = new THREE.SphereGeometry( 8.0, 5, 5 );
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
-	sphere.position.set(200, 130, 50);
+	sphere.position.set(3, 1, 1);
 	    scene.add(sphere);
 	    sphere.name ='sphere';
 	    
