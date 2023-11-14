@@ -35,7 +35,7 @@
             resetCamera: function() {
            var delta = clock.getDelta();  
             controls.update(delta);  
-              camera.position.set(100, 150, 10);
+              camera.position.set(50, 150, 0);
                camera.lookAt(-10,150,0);
             }
           };
