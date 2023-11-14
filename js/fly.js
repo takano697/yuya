@@ -121,7 +121,7 @@
                         if(clickFlg && count == 0){
                         const element =document.createElement('div'); 
 			element.id = "info";
-			element.innerHTML = "101情報教室\nメディア情報系の授業を行う。"; 
+			element.innerHTML = "101情報教室<br>メディア情報系の授業を行う。"; 
 			document.getElementById('main_canvas').appendChild(element);
 		        count = 1;
 				 
