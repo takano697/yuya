@@ -72,7 +72,7 @@
         //let mesh = gltf.asset[i];
  
         //コンソールにMeshの名前一覧を出力。
-        console.log(gltf.asset);
+        console.log(gltf.scenes);
    // }
                 scene.add(gltf.scene, sphere);
             },
