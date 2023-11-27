@@ -84,7 +84,6 @@
 		gl = sce[2].children;
                console.log(sce[2].children);
            }
-		    console.log(objects);
             },
              function (error) {
                 console.log('An error happened');
@@ -155,10 +154,18 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
+	    raywall = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, -1, 0));
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(obj.name);
+			const dist = intersects[0].distance;
+			    console.log(dist);
+			if(dist <= 10)
+			{
+			   controls.object.position.y = intersects[0].point.y + 20;
+			}
+			    
                         if(obj.name == 'Room'){
                            if(moveFlg){
                             clickFlg = true;
@@ -174,7 +181,8 @@
     			canvas.style.cursor = 'pointer';
    			 }else{
     			canvas.style.cursor = 'grab';
-			    }		
+			    }	
+	    
             renderer.render(scene, camera);
             requestAnimationFrame(tick);
         }
