@@ -46,8 +46,11 @@
           
         // Load GLTF or GLB
         const loader = new THREE.GLTFLoader();
-        const url = 'school2.glb';
-     
+        const url = 'school2draco.glb';
+        const draco = new THREE.DRACOLoader();
+	draco.setDecoderPath( 'draco/' );
+	loader.setDRACOLoader( draco );
+	    
         // window size
         const w_height = window.innerHeight;
 
