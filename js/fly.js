@@ -182,7 +182,7 @@
 			    console.log(wall[0].object.name);
 			if(dist <= 35)
 			{
-			   controls.object.position.z = intersects[0].point.z + 100;
+			   controls.object.position.z = wall[0].point.z + 100;
 			}
 		}else{
 		}
