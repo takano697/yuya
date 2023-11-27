@@ -180,9 +180,9 @@
 			const dist = wall[0].distance;
 			    console.log(dist);
 			    console.log(wall[0].object.name);
-			if(dist <= 10)
+			if(dist <= 35)
 			{
-			   controls.object.position.z = intersects[0].point.z + 20;
+			   controls.object.position.z = intersects[0].point.z + 3;
 			}
 		}
             renderer.render(scene, camera);
