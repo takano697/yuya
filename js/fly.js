@@ -144,16 +144,16 @@
         	
             var delta = clock.getDelta();  
             controls.update(delta);  
-     if (model !== null) {
-	     const sce =scene.children;
-               console.log(sce[2]);
-            }
+     //if (model !== null) {
+	    // const sce =scene.children;
+             //  console.log(sce[2]);
+          //  }
           
             raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObject(scene.children, false);
+                    const intersects = raycaster.intersectObjects(scene.children, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
-			    console.log(obj);
+			    console.log(intersects[0]);
                         if(obj.name == 'sphere'){
                            if(moveFlg){
                             clickFlg = true;
