@@ -151,7 +151,7 @@
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
-                        const obj = intersects[0].object;
+                        const obj = intersects[0].group;
 			    console.log(obj.name);
                         if(obj.name == 'Scene'){
                            if(moveFlg){
