@@ -159,14 +159,7 @@
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(obj.name);
-			const dist = intersects[0].distance;
-			    console.log(dist);
-			if(dist <= 10)
-			{
-			   controls.object.position.z = intersects[0].point.z + -20;
-			}
-			    
-                        if(obj.name == 'Room'){
+                   if(obj.name == 'Room'){
                            if(moveFlg){
                             clickFlg = true;
                             }
@@ -182,7 +175,15 @@
    			 }else{
     			canvas.style.cursor = 'grab';
 			    }	
-	    
+		const wall = raywall.intersectObjects(gl, false);
+		if(wall.length > 0){
+			const dist = wall[0].distance;
+			    console.log(dist);
+			if(dist <= 10)
+			{
+			   controls.object.position.z = intersects[0].point.z + -20;
+			}
+		}
             renderer.render(scene, camera);
             requestAnimationFrame(tick);
         }
