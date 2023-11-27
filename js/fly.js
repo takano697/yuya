@@ -146,12 +146,12 @@
             controls.update(delta);  
      
            if (model !== null) {
-               console.log(scene);
+               console.log(intersects);
             }
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
-                        const obj = intersects[0].group;
+                        const obj = intersects[0].object;
 			    console.log(obj.name);
                         if(obj.name == 'Scene'){
                            if(moveFlg){
