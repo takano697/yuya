@@ -84,6 +84,7 @@
 		gl = sce[2].children;
                console.log(sce[2].children);
            }
+		    console.log(objects);
             },
              function (error) {
                 console.log('An error happened');
