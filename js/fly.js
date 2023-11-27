@@ -154,8 +154,8 @@
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
-			    console.log(intersects[0]);
-                        if(obj.name == 'sphere'){
+			    console.log(obj.name);
+                        if(obj.name == 'Room'){
                            if(moveFlg){
                             clickFlg = true;
                             }
