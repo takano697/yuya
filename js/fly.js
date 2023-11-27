@@ -153,7 +153,7 @@
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(obj.name);
-                        if(obj.name == 'sphere'){
+                        if(obj.name == 'Scene'){
                            if(moveFlg){
                             clickFlg = true;
                             }
