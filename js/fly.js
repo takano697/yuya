@@ -61,6 +61,7 @@
 	    sphere.name ='sphere';
 	    
         let model;
+	let gl;
         loader.load(
             url,
             function (gltf) {
@@ -77,6 +78,7 @@
                 scene.add(gltf.scene, sphere);
 		    const sce =scene.children;
           if (sce[2] !== null) {
+		gl = sce[2].children;
                console.log(sce[2].children);
            }
             },
@@ -149,7 +151,7 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(scene.children, false);
+                    const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(intersects[0]);
