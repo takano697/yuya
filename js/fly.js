@@ -151,9 +151,9 @@
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children, false);
                     if(intersects.length > 0){
-                        const obj = intersects[0].children.object;
-			    console.log(obj.name);
-                        if(obj.name == 'Room'){
+                        const obj = intersects[0].object;
+			    console.log(obj);
+                        if(obj.name == 'sphere'){
                            if(moveFlg){
                             clickFlg = true;
                             }
