@@ -145,13 +145,13 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
      if (model !== null) {
-               console.log(scene.children.children);
+               console.log(scene.children);
             }
           
             raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(scene.children.children,false);
+                    const intersects = raycaster.intersectObjects(scene.children, false);
                     if(intersects.length > 0){
-                        const obj = intersects[0].object;
+                        const obj = intersects[0].children.object;
 			    console.log(obj.name);
                         if(obj.name == 'Room'){
                            if(moveFlg){
