@@ -72,9 +72,13 @@
         //let mesh = gltf.asset[i];
  
         //コンソールにMeshの名前一覧を出力。
-        console.log(gltf.scenes);
+       // console.log(gltf.scenes);
    // }
                 scene.add(gltf.scene, sphere);
+		    const sce =scene.children;
+          if (sce[2] !== null) {
+               console.log(sce[2].children);
+           }
             },
              function (error) {
                 console.log('An error happened');
@@ -144,10 +148,6 @@
         	
             var delta = clock.getDelta();  
             controls.update(delta);  
-	const sce =scene.children;
-          if (sce[2] !== null) {
-               console.log(sce[2].children);
-           }
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children, false);
                     if(intersects.length > 0){
