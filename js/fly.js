@@ -146,7 +146,7 @@
             controls.update(delta);  
      if (model !== null) {
 	     const sce =scene.children;
-               console.log(sce[2]);
+               console.log(sce[2].object);
             }
           
             raycaster.setFromCamera(mouse,camera);
