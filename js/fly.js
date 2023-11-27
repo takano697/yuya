@@ -138,19 +138,18 @@
         const clock = new THREE.Clock();
         // 初回実行
         setControll();
-　　　　window.onload = tick();
+　　　　tick();
      
         function tick() {
         	
             var delta = clock.getDelta();  
             controls.update(delta);  
-          
-            raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(scene.children, false);
-		 if (intersects !== null) {
-	     const sce =scene.children;
+	const sce =scene.children;
+          if (sce[2] !== null) {
                console.log(sce[2].children);
            }
+            raycaster.setFromCamera(mouse,camera);
+                    const intersects = raycaster.intersectObjects(scene.children, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(intersects[0]);
