@@ -181,7 +181,7 @@
 			    console.log(dist);
 			if(dist <= 10)
 			{
-			   controls.object.position.z = intersects[0].point.z + -20;
+			   controls.object.position.z = intersects[0].point.z + -5;
 			}
 		}
             renderer.render(scene, camera);
