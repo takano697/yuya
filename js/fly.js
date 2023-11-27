@@ -154,7 +154,7 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
-	    raywall = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, -1, 0));
+	    raywall = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 0, 1));
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
@@ -163,7 +163,7 @@
 			    console.log(dist);
 			if(dist <= 10)
 			{
-			   controls.object.position.y = intersects[0].point.y + 20;
+			   controls.object.position.z = intersects[0].point.z + -20;
 			}
 			    
                         if(obj.name == 'Room'){
