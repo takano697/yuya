@@ -184,6 +184,7 @@
 			{
 			   controls.object.position.z = intersects[0].point.z + 100;
 			}
+		}else{
 		}
             renderer.render(scene, camera);
             requestAnimationFrame(tick);
