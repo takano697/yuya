@@ -145,7 +145,7 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
      
-           if (model !== null) {
+           if (intersects !== null) {
                console.log(intersects);
             }
             raycaster.setFromCamera(mouse,camera);
