@@ -158,7 +158,7 @@
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
-			    console.log(obj.name);
+			    //console.log(obj.name);
                    if(obj.name == 'Room'){
                            if(moveFlg){
                             clickFlg = true;
@@ -179,6 +179,7 @@
 		if(wall.length > 0){
 			const dist = wall[0].distance;
 			    console.log(dist);
+			    console.log(wall[0].object.name);
 			if(dist <= 10)
 			{
 			   controls.object.position.z = intersects[0].point.z + -5;
