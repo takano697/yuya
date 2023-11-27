@@ -154,7 +154,6 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
-	    raywall = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 0, -1));
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
@@ -175,6 +174,7 @@
    			 }else{
     			canvas.style.cursor = 'grab';
 			    }	
+		raywall = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 0, -1));
 		const wall = raywall.intersectObjects(gl, false);
 		if(wall.length > 0){
 			const dist = wall[0].distance;
@@ -182,7 +182,67 @@
 			    console.log(wall[0].object.name);
 			if(dist <= 35)
 			{
-			   controls.object.position.z = wall[0].point.z + 100;
+			   controls.object.position.z = wall[0].point.z + 80;
+			}
+		}else{
+		}
+		raywall_2 = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 0, 1));
+		const wall_2 = raywall_2.intersectObjects(gl, false);
+		if(wall_2.length > 0){
+			const dist = wall_2[0].distance;
+			    //console.log(dist);
+			   //console.log(wall_2[0].object.name);
+			if(dist <= 35)
+			{
+			   controls.object.position.z = wall_2[0].point.z + -80;
+			}
+		}else{
+		}
+		rayfloor = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, -1, 0));
+		const floor = rayfloor.intersectObjects(gl, false);
+		if(floor.length > 0){
+			const dist = floor[0].distance;
+			    //console.log(dist);
+			    //console.log(floor[0].object.name);
+			if(dist <= 35)
+			{
+			   controls.object.position.y = floor[0].point.y + 80;
+			}
+		}else{
+		}
+		rayceiling = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 1, 0));
+		const ceiling = rayceiling.intersectObjects(gl, false);
+		if(ceiling.length > 0){
+			const dist = ceiling[0].distance;
+			    //console.log(dist);
+			    //console.log(ceiling[0].object.name);
+			if(dist <= 35)
+			{
+			   controls.object.position.y = ceiling[0].point.y + -80;
+			}
+		}else{
+		}
+		rayfront = new THREE.Raycaster(controls.object.position, new THREE.Vector3(1, 0, 0));
+		const front = rayfront.intersectObjects(gl, false);
+		if(front.length > 0){
+			const dist = front[0].distance;
+			    //console.log(dist);
+			    //console.log(front[0].object.name);
+			if(dist <= 35)
+			{
+			   controls.object.position.x = front[0].point.x + -80;
+			}
+		}else{
+		}
+		rayback = new THREE.Raycaster(controls.object.position, new THREE.Vector3(-1, 0, 0));
+		const back = rayback.intersectObjects(gl, false);
+		if(back.length > 0){
+			const dist = back[0].distance;
+			    //console.log(dist);
+			    //console.log(back[0].object.name);
+			if(dist <= 35)
+			{
+			   controls.object.position.x = back[0].point.x + 80;
 			}
 		}else{
 		}
