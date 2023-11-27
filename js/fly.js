@@ -138,7 +138,7 @@
         const clock = new THREE.Clock();
         // 初回実行
         setControll();
-        tick();
+　　　　window.onload = tick();
      
         function tick() {
         	
