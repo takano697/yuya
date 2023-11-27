@@ -145,11 +145,12 @@
             var delta = clock.getDelta();  
             controls.update(delta);  
      
-           if (intersects !== null) {
-               console.log(intersects);
-            }
+          
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
+		if (intersects !== null) {
+               console.log(intersects);
+            }
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    console.log(obj.name);
