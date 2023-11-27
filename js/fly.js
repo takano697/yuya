@@ -144,36 +144,9 @@
                         }
                     }
                 }
-        const clock = new THREE.Clock();
-        // 初回実行
-        setControll();
-　　　　tick();
-     
-        function tick() {
-        	
-            var delta = clock.getDelta();  
-            controls.update(delta);  
-            raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(gl, false);
-                    if(intersects.length > 0){
-                        const obj = intersects[0].object;
-			    //console.log(obj.name);
-                   if(obj.name == 'Room'){
-                           if(moveFlg){
-                            clickFlg = true;
-                            }
-                             }else{
-                                clickFlg = false;
-                                }
-                        }else{
-			    
-                            clickFlg = false;
-		    }
-			if(clickFlg){
-    			canvas.style.cursor = 'pointer';
-   			 }else{
-    			canvas.style.cursor = 'grab';
-			    }	
+
+        //壁判定
+	function wallpositionset(){
 		raywall = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 0, -1));
 		const wall = raywall.intersectObjects(gl, false);
 		if(wall.length > 0){
@@ -246,6 +219,39 @@
 			}
 		}else{
 		}
+	}
+	    
+        const clock = new THREE.Clock();
+        // 初回実行
+        setControll();
+　　　　tick();
+     
+        function tick() {
+        	
+            var delta = clock.getDelta();  
+            controls.update(delta);  
+            raycaster.setFromCamera(mouse,camera);
+                    const intersects = raycaster.intersectObjects(gl, false);
+                    if(intersects.length > 0){
+                        const obj = intersects[0].object;
+			    //console.log(obj.name);
+                   if(obj.name == 'Room'){
+                           if(moveFlg){
+                            clickFlg = true;
+                            }
+                             }else{
+                                clickFlg = false;
+                                }
+                        }else{
+			    
+                            clickFlg = false;
+		    }
+			if(clickFlg){
+    			canvas.style.cursor = 'pointer';
+   			 }else{
+    			canvas.style.cursor = 'grab';
+			    }	
+	    wallpositionset();
             renderer.render(scene, camera);
             requestAnimationFrame(tick);
         }
