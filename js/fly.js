@@ -61,7 +61,7 @@
 	    sphere.name ='sphere';
 	    
         let model;
-	let gl;
+	let gl=[];
         loader.load(
             url,
             function (gltf) {
