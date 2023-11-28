@@ -22,7 +22,7 @@
         
        camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
             
-        camera.position.set(300, 200, 0);
+        camera.position.set(300, 250, 0);
         camera.lookAt(-10,150,0);
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
@@ -36,7 +36,7 @@
             resetCamera: function() {
            var delta = clock.getDelta();  
             controls.update(delta);  
-              camera.position.set(300, 200, 0);
+              camera.position.set(300, 250, 0);
                camera.lookAt(-10,150,0);
             }
           };
@@ -231,9 +231,9 @@
         	
             var delta = clock.getDelta();  
             controls.update(delta); 
-	　　if(controls.object.position.y !== 200)
+	　　if(controls.object.position.y !== 250)
 	  {
-		  controls.object.position.y = 200;
+		  controls.object.position.y = 250;
 	  }
 	 	console.log(controls.object.ratate);
 		//console.log(controls.object.position);
