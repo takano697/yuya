@@ -151,8 +151,8 @@
 		const wall = raywall.intersectObjects(gl, false);
 		if(wall.length > 0){
 			const dist = wall[0].distance;
-			    console.log(dist);
-			    console.log(wall[0].object.name);
+			    //console.log(dist);
+			    //console.log(wall[0].object.name);
 			if(dist <= 35)
 			{
 			   controls.object.position.z = wall[0].point.z + 80;
