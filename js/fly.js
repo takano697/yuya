@@ -237,15 +237,7 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
-	if(controls.object.rotation.z >= 1.5 || controls.object.rotation.z <= -1.5){
-		controls.object.rotation.z = 0;
-	}
-		if(controls.object.rotation.x >= 1.5 || controls.object.rotation.x <= -1.5){
-		controls.object.rotation.x = 0;
-	}
-		if(controls.object.rotation.y >= 1.5 || controls.object.rotation.y <= -1.5){
-		controls.object.rotation.y = 0;
-	}
+	 controls.object.rotation = controls.object.position;
 	  console.log(controls.object.rotation);
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
