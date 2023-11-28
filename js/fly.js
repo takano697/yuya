@@ -240,6 +240,12 @@
 	if(controls.object.rotation.z >= 0.5 || controls.object.rotation.z <= -0.5){
 		controls.object.rotation.z = 0;
 	}
+		if(controls.object.rotation.x >= 0.5 || controls.object.rotation.x <= -0.5){
+		controls.object.rotation.x = 0;
+	}
+		if(controls.object.rotation.y >= 0.5 || controls.object.rotation.y <= -0.5){
+		controls.object.rotation.y = 0;
+	}
 	  console.log(controls.object.rotation);
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
