@@ -235,6 +235,9 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
+	　　if(controls.object.rotation.x > 50){
+	    controls.object.rotation.x += 30;
+	  }
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
