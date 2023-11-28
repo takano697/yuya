@@ -240,7 +240,7 @@
 		const rotationy = controls.object.rotation.y;
 		const rotationz = controls.object.rotation.z;
 	    if(controls.object.rotation.x !== rotationx){
-		    controls.object.rotation = rotationx;
+		    controls.object.rotation.y = rotationy;
 	    }
 	  console.log(controls.object.rotation);
             raycaster.setFromCamera(mouse,camera);
