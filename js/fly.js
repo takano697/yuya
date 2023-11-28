@@ -28,8 +28,7 @@
         controls.movementSpeed = 500;	//移動速度
         controls.rollSpeed = Math.PI / 6;   //回転速度
         controls.dragToLook = true;
-	controls.domElement.removeEventListener( 'pointerdown');
-	controls.domElement.removeEventListener( 'pointermove');
+	delete controls.pointerdown();
        
      // カメラ位置をリセットするためのメニュー項目
           const gui = new dat.GUI();
