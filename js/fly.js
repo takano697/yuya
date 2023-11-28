@@ -237,13 +237,13 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
-	if(controls.object.rotation.z >= 0.5 || controls.object.rotation.z <= -0.5){
+	if(controls.object.rotation.z >= 1.5 || controls.object.rotation.z <= -1.5){
 		controls.object.rotation.z = 0;
 	}
-		if(controls.object.rotation.x >= 0.5 || controls.object.rotation.x <= -0.5){
+		if(controls.object.rotation.x >= 1.5 || controls.object.rotation.x <= -1.5){
 		controls.object.rotation.x = 0;
 	}
-		if(controls.object.rotation.y >= 0.5 || controls.object.rotation.y <= -0.5){
+		if(controls.object.rotation.y >= 1.5 || controls.object.rotation.y <= -1.5){
 		controls.object.rotation.y = 0;
 	}
 	  console.log(controls.object.rotation);
