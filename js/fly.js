@@ -236,7 +236,9 @@
 		  controls.object.position.y = 200;
 	  }
 	　　//if(controls.object.rotation.y !== 0){
+		console.log(controls.object.rotation.x);
 	 console.log(controls.object.rotation.y);
+		console.log(controls.object.rotation.z);
 	  //}
 	　　controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
