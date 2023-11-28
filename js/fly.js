@@ -39,7 +39,7 @@
            var delta = clock.getDelta();  
             controls.update(delta);  
               camera.position.set(300, 250, 0);
-               camera.lookAt(-10,150,0);
+               //camera.lookAt(-10,150,0);
             }
           };
      
