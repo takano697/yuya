@@ -24,8 +24,8 @@
             
         camera.position.set(300, 250, 0);
 	//camera.rotation.order = "ZYX";
-	//camera.rotation.set(0,0,0);
-        camera.lookAt(-10,150,0);
+	camera.rotation.set(0,0,0);
+        //camera.lookAt(-10,150,0);
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
         controls.rollSpeed = Math.PI / 6;   //回転速度
@@ -237,6 +237,9 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
+	if(controls.object.rotation.z !== 0){
+		controls.object.rotation.z = 0;
+	}
 	  console.log(controls.object.rotation);
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
