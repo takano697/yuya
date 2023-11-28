@@ -237,7 +237,7 @@
 	  }
 	　　if(controls.object.rotation.x <= 0.5){
 	    controls.object.rotation.x += 0.3;
-	  }else if(controls.object.rotation.x >= 2.5 ;){
+	  }else if(controls.object.rotation.x >= 2.5){
 		  controls.object.rotation.x += -0.3;
 	  }
             raycaster.setFromCamera(mouse,camera);
