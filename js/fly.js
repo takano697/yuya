@@ -237,7 +237,7 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
-	if(controls.object.rotation.z !== 0){
+	if(controls.object.rotation.z >= 0.5 || controls.object.rotation.z <= -0.5){
 		controls.object.rotation.z = 0;
 	}
 	  console.log(controls.object.rotation);
