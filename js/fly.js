@@ -234,9 +234,9 @@
 	  {
 		  controls.object.position.y = 200;
 	  }
-	　　if(controls.object.rotation.y !== 0){
-	 controls.object.rotation.y = 0;
-	  }
+	　　//if(controls.object.rotation.y !== 0){
+	 console.log(controls.object.rotation.y);
+	  //}
 	　　controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
