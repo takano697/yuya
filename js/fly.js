@@ -234,7 +234,7 @@
 	  {
 		  controls.object.position.y = 200;
 	  }
-	 	//console.log(controls.object.rotation);
+	 	console.log(controls.object.ratate);
 		//console.log(controls.object.position);
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
