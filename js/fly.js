@@ -24,6 +24,7 @@
             
         camera.position.set(300, 250, 0);
 	camera.rotation.order = "ZYX";
+	camera.rotation.set(0,0,0);
         camera.lookAt(-10,150,0);
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
