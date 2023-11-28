@@ -236,6 +236,12 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
+		const rotationx = controls.object.rotation.x;
+		const rotationy = controls.object.rotation.y;
+		const rotationz = controls.object.rotation.z;
+	    if(controls.object.rotation.x !== rotationx){
+		    controls.object.rotation = rotationx;
+	    }
 	  console.log(controls.object.rotation);
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
