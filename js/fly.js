@@ -29,7 +29,7 @@
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
         controls.rollSpeed = Math.PI / 6;   //回転速度
-        controls.dragToLook = true;
+        controls.dragToLook = false;
 	
        
      // カメラ位置をリセットするためのメニュー項目
