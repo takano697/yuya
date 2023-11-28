@@ -234,10 +234,10 @@
 	  {
 		  controls.object.position.y = 200;
 	  }
-	　　if(controls.object.rotation.z !== 1.57){
-		controls.object.rotation.z = 1.57;
+	　　//if(controls.object.rotation.z !== 1.57){
+		//controls.object.rotation.z = 1.57;
 		
-	  } 
+	//  } 
 	 	console.log(controls.object.rotation);
 		//console.log(controls.object.position);
             raycaster.setFromCamera(mouse,camera);
