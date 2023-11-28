@@ -234,8 +234,8 @@
 	  {
 		  controls.object.position.y = 200;
 	  }
-	　　if(controls.object.rotation.y !== 0 || controls.object.rotation.z !== 0){
-	  controls.object.rotation.y = 0; controls.object.rotation.z = 0;
+	　　if(controls.object.rotation.z !== 0){
+	 controls.object.rotation.z = 0;
 	  }
 	　　controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
