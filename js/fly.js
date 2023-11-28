@@ -236,11 +236,10 @@
 	  }
 	　　if(controls.object.rotation.y !== 1.57){
 		controls.object.rotation.y = 1.57;
-		//console.log(controls.object.rotation.x);
-	 	console.log(controls.object.rotation.y);
-		//console.log(controls.object.rotation.z);
+		
 	  } 
-		console.log(controls.object.position);
+	 	console.log(controls.object.rotation);
+		//console.log(controls.object.position);
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
