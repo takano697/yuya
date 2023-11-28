@@ -23,7 +23,6 @@
        camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
             
         camera.position.set(300, 200, 0);
-	camera.rotation.x = -1;
         camera.lookAt(-10,150,0);
         var controls = new THREE.FlyControls(camera); 
         controls.movementSpeed = 500;	//移動速度
@@ -235,11 +234,13 @@
 	  {
 		  controls.object.position.y = 200;
 	  }
-	　　//if(controls.object.rotation.y !== 0){
-		console.log(controls.object.rotation.x);
-	 console.log(controls.object.rotation.y);
-		console.log(controls.object.rotation.z);
-	  //}
+	　　if(controls.object.rotation.y !== 1.57){
+		controls.object.rotation.y = 1.57;
+		//console.log(controls.object.rotation.x);
+	 	console.log(controls.object.rotation.y);
+		//console.log(controls.object.rotation.z);
+		  
+	  }
 	　　controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
