@@ -229,7 +229,13 @@
         function tick() {
         	
             var delta = clock.getDelta();  
-            controls.update(delta);  
+
+	　　if(controls.object.position.y !== 150)
+	  {
+		  controls.object.position.y = 150;
+	  }
+		
+	　　controls.update(delta);  
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
