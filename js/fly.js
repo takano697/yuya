@@ -237,6 +237,7 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
+	controls.object.rotation.set(0,0,0);
 	 controls.object.rotation = controls.object.position;
 	  console.log(controls.object.rotation);
             raycaster.setFromCamera(mouse,camera);
