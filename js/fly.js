@@ -5,6 +5,7 @@
         const renderer = new THREE.WebGLRenderer({
             canvas: document.querySelector('#canvas'),
             alpha: true,
+            antialias: true,
         });
         // ウィンドウサイズ設定
         width = document.getElementById('main_canvas').getBoundingClientRect().width;
@@ -35,16 +36,24 @@
      // カメラ位置をリセットするためのメニュー項目
           const gui = new dat.GUI();
           const settings = {
-            resetCamera: function() {
+            resetPosition: function() {
            var delta = clock.getDelta();  
             controls.update(delta);  
               camera.position.set(300, 250, 0);
                camera.lookAt(-10,250,0);
             }
           };
-     
+     	 const settings2 = {
+            	resetRotation: function() {
+           	var delta = clock.getDelta();  
+            	controls.update(delta);  
+		camera.lookAt(0,250,0);
+           	}
+          	};
+　　　　　　
       // メニューGUI
-          gui.add(settings, 'resetCamera');
+          gui.add(settings, 'resetPosition');
+	  gui.add(settings2, 'resetRotation');
           gui.open();
           
         // Load GLTF or GLB
@@ -67,27 +76,65 @@
 	    sphere.name ='sphere';
 	    
         let model;
-	let gl=[];
+	let gl,gl2,gl3,gl4,gl5 =[];
+	let objgroup = [];
         loader.load(
             url,
             function (gltf) {
                 model = gltf.scene;
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
-		 //for(let i = 0; i < gltf.asset.length; i++){
- 
-        //let mesh = gltf.asset[i];
- 
-        //コンソールにMeshの名前一覧を出力。
-       // console.log(gltf.scenes);
-   // }
                 scene.add(gltf.scene, sphere);
 		    console.log(scene.children);
 		    const sce =scene.children;
           if (sce[2] !== null) {
 		gl = sce[2].children;
                console.log(sce[2].children);
-           }
+           for(let i = 0; i+1 <= gl.length; i++){
+			if(gl[i].children.length > 0){
+				if(gl[i].type == 'Mesh'){
+				objgroup.push(gl[i]);
+				}
+				gl2 = gl[i].children;
+				for(let i = 0; i+1 <= gl2.length; i++){
+				if(gl2[i].children.length > 0){
+					if(gl2[i].type == 'Mesh'){
+					objgroup.push(gl2[i]);
+					}
+					gl3 = gl2[i].children;
+					for(let i = 0; i+1 <= gl3.length; i++){
+					if(gl3[i].children.length > 0){
+						if(gl3[i].type == 'Mesh'){
+						objgroup.push(gl3[i]);
+						}
+						gl4 = gl3[i].children;
+						for(let i = 0; i+1 <= gl4.length; i++){
+						if(gl4[i].children.length > 0){
+							if(gl4[i].type == 'Mesh'){
+							objgroup.push(gl4[i]);
+							}
+							gl5 = gl4[i].children;
+							for(let i = 0; i+1 <= gl5.length; i++){
+							objgroup.push(gl5[i]);
+							}
+						}else{	
+						objgroup.push(gl4[i]);
+						}
+					 	}	
+					}else{	
+					objgroup.push(gl3[i]);
+					}
+					}
+				}else{	
+				objgroup.push(gl2[i]);
+				}
+	    			}			
+			}else{	
+				objgroup.push(gl[i]);
+			}
+			}
+				}
+			console.log(objgroup);
             },
              function (error) {
                 console.log('An error happened');
@@ -152,7 +199,7 @@
         //壁判定
 	function wallpositionset(){
 		raywall = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 0, -1));
-		const wall = raywall.intersectObjects(gl, false);
+		const wall = raywall.intersectObjects(objgroup, false);
 		if(wall.length > 0){
 			const dist = wall[0].distance;
 			    //console.log(dist);
@@ -164,7 +211,7 @@
 		}else{
 		}
 		raywall_2 = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 0, 1));
-		const wall_2 = raywall_2.intersectObjects(gl, false);
+		const wall_2 = raywall_2.intersectObjects(objgroup, false);
 		if(wall_2.length > 0){
 			const dist = wall_2[0].distance;
 			    //console.log(dist);
@@ -176,7 +223,7 @@
 		}else{
 		}
 		rayfloor = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, -1, 0));
-		const floor = rayfloor.intersectObjects(gl, false);
+		const floor = rayfloor.intersectObjects(objgroup, false);
 		if(floor.length > 0){
 			const dist = floor[0].distance;
 			    //console.log(dist);
@@ -188,7 +235,7 @@
 		}else{
 		}
 		rayceiling = new THREE.Raycaster(controls.object.position, new THREE.Vector3(0, 1, 0));
-		const ceiling = rayceiling.intersectObjects(gl, false);
+		const ceiling = rayceiling.intersectObjects(objgroup, false);
 		if(ceiling.length > 0){
 			const dist = ceiling[0].distance;
 			    //console.log(dist);
@@ -200,7 +247,7 @@
 		}else{
 		}
 		rayfront = new THREE.Raycaster(controls.object.position, new THREE.Vector3(1, 0, 0));
-		const front = rayfront.intersectObjects(gl, false);
+		const front = rayfront.intersectObjects(objgroup, false);
 		if(front.length > 0){
 			const dist = front[0].distance;
 			    //console.log(dist);
@@ -212,7 +259,7 @@
 		}else{
 		}
 		rayback = new THREE.Raycaster(controls.object.position, new THREE.Vector3(-1, 0, 0));
-		const back = rayback.intersectObjects(gl, false);
+		const back = rayback.intersectObjects(objgroup, false);
 		if(back.length > 0){
 			const dist = back[0].distance;
 			    //console.log(dist);
@@ -240,7 +287,7 @@
 	  }
 	 //controls.object.rotation = controls.object.position;
             raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(gl, false);
+                    const intersects = raycaster.intersectObjects(objgroup, false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			    //console.log(obj.name);
