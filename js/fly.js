@@ -69,9 +69,9 @@
  	const geometry = new THREE.SphereGeometry( 8.0, 5, 5 );
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
-	sphere.position.y = 260;
-	sphere.position.x = -150;
-	sphere.position.z = -140;
+	sphere.position.y = 280;
+	sphere.position.x = -180;
+	sphere.position.z = -180;
 	    
 	    sphere.name ='sphere';
 	    
