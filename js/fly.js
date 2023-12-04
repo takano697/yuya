@@ -78,15 +78,17 @@
         let model,anime;
 	let gl,gl2,gl3,gl4,gl5 =[];
 	let objgroup = [];
-	let doorclip,doorclip2,doormixer1,doormixer2;
+	let doorclip,doorclip2,doormixer,doormixer2;
         loader.load(
             url,
             function (gltf) {
-		anime = gltf.animation;
+		anime = gltf.animations;
                 model = gltf.scene;
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
                 scene.add(gltf.scene, sphere);
+		doormixer = new THREE.AnimationMixer(model);
+		doormixer2 = new THREE.AnimationMixer(model);
 		    console.log(anime);
 		    console.log(scene.children);
 		    const sce =scene.children;
