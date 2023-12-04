@@ -227,7 +227,7 @@
 				if(cstoptime > 2.8){
 				renderer.setAnimationLoop(null);
 				}
-				update();
+				update2();
 				renderer.render(scene,camera);
 				});
 				}
