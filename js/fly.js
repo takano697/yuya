@@ -198,14 +198,14 @@
                         doormixer.update(clock.getDelta());
                     	}
                 	}
-			if(cstoptime == 1000 || cstoptime >= 2.8){
+			if(cstoptime == 1000 || cstoptime >= 2){
 			cstoptime = null;
 			doormixer.clipAction(doorclip).reset();
 			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
 			let timestamp2 = Math.floor( Date.now() / 1000 );
 			stoptime = timestamp2 - timestamp;
-			if(stoptime > 3){
+			if(stoptime > 2){
 				renderer.setAnimationLoop(null);
 			}
 			update();
@@ -217,14 +217,14 @@
                        		 doormixer2.update(clock.getDelta());
                     			}
                 		}
-			        if(stoptime >= 3){
+			        if(stoptime >= 2){
 				stoptime = null;
 				doormixer2.clipAction(doorclip2).reset();
 				let ctimestamp = Math.floor( Date.now() / 1000 );
 				renderer.setAnimationLoop(() => {
 				let ctimestamp2 = Math.floor( Date.now() / 1000 );
 				cstoptime = ctimestamp2 - ctimestamp;
-				if(cstoptime > 2.8){
+				if(cstoptime > 2){
 				renderer.setAnimationLoop(null);
 				}
 				update2();
