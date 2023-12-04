@@ -5,7 +5,7 @@
         const renderer = new THREE.WebGLRenderer({
             canvas: document.querySelector('#canvas'),
             alpha: true,
-            antialias: true,
+            //antialias: true,
         });
         // ウィンドウサイズ設定
         width = document.getElementById('main_canvas').getBoundingClientRect().width;
