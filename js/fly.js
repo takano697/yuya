@@ -75,16 +75,18 @@
 	    
 	    sphere.name ='sphere';
 	    
-        let model;
+        let model,anime;
 	let gl,gl2,gl3,gl4,gl5 =[];
 	let objgroup = [];
         loader.load(
             url,
             function (gltf) {
+		anime = gltf.animation;
                 model = gltf.scene;
                 model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
                 scene.add(gltf.scene, sphere);
+		    console.log(anime);
 		    console.log(scene.children);
 		    const sce =scene.children;
           if (sce[2] !== null) {
@@ -155,18 +157,19 @@
         scene.add(light);
      
      
-        //環境光源(アンビエントライト)：すべてを均等に照らす、影のない、全体を明るくするライト
-        const ambient = new THREE.AmbientLight(0xf8f8ff, 0.7);
-        scene.add(ambient); //シーンにアンビエントライトを追加
-        let mouse;
-        let raycaster;
-        let clickFlg = false;
-        let moveFlg = false;
+       	 	//環境光源(アンビエントライト)：すべてを均等に照らす、影のない、全体を明るくするライト
+        	const ambient = new THREE.AmbientLight(0xf8f8ff, 0.7);
+        	scene.add(ambient); //シーンにアンビエントライトを追加
+       	 	
+	    	let mouse;
+        	let raycaster;
+        	let doorFlg = false;
+        	let moveFlg = false;
 		let count = 0;
 		mouse = new THREE.Vector2();
-        raycaster = new THREE.Raycaster();
-                function setControll(){
-                    
+        	raycaster = new THREE.Raycaster();
+                
+	    function setControll(){
                     canvas.addEventListener('pointermove',handleMouseMove);
                     canvas.addEventListener('click',handleClick);
                     function handleMouseMove(event){
@@ -180,19 +183,19 @@
                         mouse.y = -(y/h)*2+1;
                     }
                     function handleClick(event){
-                        if(clickFlg && count == 0){
-                        const element =document.createElement('div'); 
-			element.id = "info";
-			element.innerHTML = "101情報教室<br>メディア情報系の授業を行う。"; 
-			document.getElementById('main_canvas').appendChild(element);
+                        if(doorFlg && count == 0){
 		        count = 1;
 				 
-				clickFlg=false;
+				doorFlg=false;
                          }else{
-				document.getElementById('info').remove();
 				count = 0;
-                            clickFlg = false;
+                            doorFlg = false;
                         }
+			    //const element =document.createElement('div'); 
+				//element.id = "info";
+				//element.innerHTML = "101情報教室<br>メディア情報系の授業を行う。"; 
+				//document.getElementById('main_canvas').appendChild(element);
+			    //document.getElementById('info').remove();
                     }
                 }
 
@@ -271,6 +274,31 @@
 		}else{
 		}
 	}
+
+	//クリックしたオブジェクトを判定
+	function setfromcamera{
+	    	raycaster.setFromCamera(mouse,camera);
+                    const intersects = raycaster.intersectObjects(objgroup, false);
+                    if(intersects.length > 0){
+                        const obj = intersects[0].object;
+			    //console.log(obj.name);
+                   if(obj.name == 'DoorFrame' || obj.name == 'Door_1' || obj.name == 'Door_2' || obj.name == 'Handle_Back' || obj.name == 'Handle_Front'){
+                           if(moveFlg){
+                            doorFlg = true;
+                            }
+                             }else{
+                                doorFlg = false;
+                                }
+                        }else{
+			    
+                            doorFlg = false;
+		    }
+			if(doorFlg){
+    			canvas.style.cursor = 'pointer';
+   			 }else{
+    			canvas.style.cursor = 'grab';
+			    }	
+	}
 	    
         const clock = new THREE.Clock();
         // 初回実行
@@ -285,28 +313,8 @@
 	  {
 		  controls.object.position.y = 250;
 	  }
-	 //controls.object.rotation = controls.object.position;
-            raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(objgroup, false);
-                    if(intersects.length > 0){
-                        const obj = intersects[0].object;
-			    //console.log(obj.name);
-                   if(obj.name == 'Room'){
-                           if(moveFlg){
-                            clickFlg = true;
-                            }
-                             }else{
-                                clickFlg = false;
-                                }
-                        }else{
-			    
-                            clickFlg = false;
-		    }
-			if(clickFlg){
-    			canvas.style.cursor = 'pointer';
-   			 }else{
-    			canvas.style.cursor = 'grab';
-			    }	
+	
+            setfromcamera();
 	    wallpositionset();
             renderer.render(scene, camera);
             requestAnimationFrame(tick);
