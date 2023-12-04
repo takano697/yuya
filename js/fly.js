@@ -89,6 +89,10 @@
                 scene.add(gltf.scene, sphere);
 		doormixer = new THREE.AnimationMixer(model);
 		doormixer2 = new THREE.AnimationMixer(model);
+		doorclip =  THREE.AnimationClip.findByName( anime, 'Door_GroupOpen' );
+		doorclip2 =  THREE.AnimationClip.findByName( anime, 'Door_GroupClose' );
+		doormixer.clipAction(doorclip).play();　
+		doormixer2.clipAction(doorclip2).play();
 		    console.log(anime);
 		    console.log(scene.children);
 		    const sce =scene.children;
@@ -169,6 +173,8 @@
         	let doorFlg = false;
         	let moveFlg = false;
 		let count = 0;
+	     	let stoptime = null;
+		let cstoptime = 1000;
 		mouse = new THREE.Vector2();
         	raycaster = new THREE.Raycaster();
                 
@@ -186,8 +192,46 @@
                         mouse.y = -(y/h)*2+1;
                     }
                     function handleClick(event){
-                        if(doorFlg && count == 0){
-		        count = 1;
+                        if(doorFlg){
+			function update() {
+                    	if (doormixer) {
+                        doormixer.update(clock.getDelta());
+                    	}
+                	}
+			if(cstoptime == 1000 || cstoptime >= 2.8){
+			cstoptime = null;
+			doormixer.clipAction(doorclip).reset();
+			let timestamp = Math.floor( Date.now() / 1000 );
+			renderer.setAnimationLoop(() => {
+			let timestamp2 = Math.floor( Date.now() / 1000 );
+			stoptime = timestamp2 - timestamp;
+			if(stoptime > 3){
+				renderer.setAnimationLoop(null);
+			}
+			update();
+			renderer.render(scene,camera);
+			});
+			}
+		        function update2() {
+                    		if (doormixer2) {
+                       		 doormixer2.update(clock.getDelta());
+                    			}
+                		}
+			        if(stoptime >= 3){
+				stoptime = null;
+				doormixer2.clipAction(doorclip2).reset();
+				let ctimestamp = Math.floor( Date.now() / 1000 );
+				renderer.setAnimationLoop(() => {
+				let ctimestamp2 = Math.floor( Date.now() / 1000 );
+				cstoptime = ctimestamp2 - ctimestamp;
+				if(cstoptime > 2.8){
+				renderer.setAnimationLoop(null);
+				}
+				update();
+				renderer.render(scene,camera);
+				});
+				}
+				count = 1;
 				 
 				doorFlg=false;
                          }else{
