@@ -70,7 +70,7 @@
 	const material = new THREE.MeshPhongMaterial({color: 0xE83845});
 	const sphere = new THREE.Mesh(geometry, material);
 	sphere.position.y = 260;
-	sphere.position.x = -70;
+	sphere.position.x = -150;
 	sphere.position.z = -140;
 	    
 	    sphere.name ='sphere';
