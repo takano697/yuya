@@ -285,13 +285,13 @@
                    if(obj.name == 'DoorFrame' || obj.name == 'Door_1' || obj.name == 'Door_2' || obj.name == 'Handle_Back' || obj.name == 'Handle_Front'){
                            if(moveFlg){
                             doorFlg = true;
-                            }
-                             }else{
+                            }else{
                                 doorFlg = false;
                                 }
                         }else{
 			    
                             doorFlg = false;
+		    }
 		    }
 			if(doorFlg){
     			canvas.style.cursor = 'pointer';
