@@ -82,6 +82,7 @@
        // console.log(gltf.scenes);
    // }
                 scene.add(gltf.scene, sphere);
+		    console.log(scene.children);
 		    const sce =scene.children;
           if (sce[2] !== null) {
 		gl = sce[2].children;
@@ -238,7 +239,6 @@
 		  controls.object.position.y = 250;
 	  }
 	 //controls.object.rotation = controls.object.position;
-	  console.log(controls.object.rotation);
             raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(gl, false);
                     if(intersects.length > 0){
