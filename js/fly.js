@@ -78,6 +78,7 @@
         let model,anime;
 	let gl,gl2,gl3,gl4,gl5 =[];
 	let objgroup = [];
+	let doorclip,doorclip2,doormixer1,doormixer2;
         loader.load(
             url,
             function (gltf) {
@@ -276,7 +277,7 @@
 	}
 
 	//クリックしたオブジェクトを判定
-	function setfromcamera{
+	function setfromcamera(){
 	    	raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(objgroup, false);
                     if(intersects.length > 0){
