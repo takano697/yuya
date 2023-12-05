@@ -205,6 +205,8 @@
         	let raycaster;
         	let doorFlg,door2Flg,door3Flg,door4Flg,lightFlg,lightFlg2 = false;
         	let moveFlg = false;
+	        let stoptime,stoptime2,stoptime3,stoptime4 = null;
+	        let cstoptime,cstoptime2,cstoptime3,cstoptime4 = 1000;
 	        let lightcount = 0;
 		let lightcount2 = 0;
 		mouse = new THREE.Vector2();
@@ -224,9 +226,7 @@
                         mouse.y = -(y/h)*2+1;
                     }
                     function handleClick(event){
-			function dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg){
-			let stoptime = null;
-			let cstoptime = 1000;
+			function dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg,stoptime,cstoptime){
 			let count = 0;
 			const doormix = doormixer;
 			const doormix2 = doormixer2;
@@ -279,10 +279,10 @@
                         }
 			}
 
-			dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg);
-			dooraction(doormixer3,doormixer4,doorclip3,doorclip4,door2Flg);
-			dooraction(doormixer5,doormixer6,doorclip5,doorclip6,door3Flg);
-			dooraction(doormixer7,doormixer8,doorclip7,doorclip8,door4Flg);
+			dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg,stoptime,cstoptime);
+			dooraction(doormixer3,doormixer4,doorclip3,doorclip4,door2Flg,stoptime2,cstoptime2);
+			dooraction(doormixer5,doormixer6,doorclip5,doorclip6,door3Flg,stoptime3,cstoptime3);
+			dooraction(doormixer7,doormixer8,doorclip7,doorclip8,door4Flg,stoptime4,cstoptime4);
 			    
 			if(lightFlg && lightcount == 0){
 			for(let i=0;i < light1.length; i++){
