@@ -78,6 +78,7 @@
         let model,anime;
 	let gl,gl2,gl3,gl4,gl5 =[];
 	let objgroup = [];
+	let light,light2 = [];
 	let doorclip,doorclip2,doormixer,doormixer2;
         loader.load(
             url,
@@ -144,6 +145,15 @@
 			}
 				}
 			console.log(objgroup);
+		    	for(i=0; i+1 <= objgroup.length; i++){
+			if(objgroup[i].name == "light" || objgroup[i].name == "light.001" || objgroup[i].name == "light.002" || objgroup[i].name == "light.003" ||
+			  objgroup[i].name == "light.004" || objgroup[i].name == "light.005"){
+			light.push(objgroup[i]);
+			}else if(objgroup[i].name == "light.006" || objgroup[i].name == "light.007" || objgroup[i].name == "light.008" || objgroup[i].name == "light.009" ||
+				objgroup[i].name == "light.010" || objgroup[i].name == "light.011"){
+				light2.push(objgroup[i]);
+			}
+			}
             },
              function (error) {
                 console.log('An error happened');
@@ -170,7 +180,7 @@
        	 	
 	    	let mouse;
         	let raycaster;
-        	let doorFlg = false;
+        	let doorFlg,lightFlg,lightFlg2 = false;
         	let moveFlg = false;
 		let count = 0;
 	     	let stoptime = null;
@@ -238,6 +248,30 @@
 				count = 0;
                             doorFlg = false;
                         }
+			let lightcount,lightcount2 = 0;
+			if(lightFlg && lightcount == 0){
+			for(i=0;i > light.length; i++){
+			light[i].material.emissive.setRGB(1,1,1);
+			}
+			lightcount = 1;
+			}else if(lightFlg && lightcount == 1){
+			for(i=0;i > light.length; i++){
+			light[i].material.emissive.setRGB(0,0,0);
+			}
+			lightcount = 0;
+			}
+			    
+			if(lightFlg2 && lightcount2 == 0){
+			for(i=0;i > light2.length; i++){
+			light2[i].material.emissive.setRGB(1,1,1);
+			}
+			lightcount2 = 1;
+			}else if(lightFlg2 && lightcount2 == 1){
+			for(i=0;i > light2.length; i++){
+			light2[i].material.emissive.setRGB(0,0,0);
+			}
+			lightcount2 = 0;
+			}
 			    //const element =document.createElement('div'); 
 				//element.id = "info";
 				//element.innerHTML = "101情報教室<br>メディア情報系の授業を行う。"; 
@@ -335,12 +369,29 @@
                             }else{
                                 doorFlg = false;
                                 }
-                        }else{
-			    
+                        }else{ 
                             doorFlg = false;
 		    }
+		    if(obj.name == 'switch'){
+                           if(moveFlg){
+                            lightFlg = true;
+                            }else{
+                                lightFlg = false;
+                                }
+                        }else{
+                            lightFlg = false;
 		    }
-			if(doorFlg){
+		    if(obj.name == 'switch.001'){
+                           if(moveFlg){
+                            lightFlg2 = true;
+                            }else{
+                                lightFlg2 = false;
+                                }
+                        }else{
+                            lightFlg2 = false;
+		    }    
+		    }
+			if(doorFlg || lightFlg || lightFlg2){
     			canvas.style.cursor = 'pointer';
    			 }else{
     			canvas.style.cursor = 'grab';
