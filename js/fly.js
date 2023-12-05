@@ -146,11 +146,11 @@
 				}
 			console.log(objgroup);
 		    	for(i=0; i+1 <= objgroup.length; i++){
-			if(objgroup[i].name == "light" || objgroup[i].name == "light.001" || objgroup[i].name == "light.002" || objgroup[i].name == "light.003" ||
-			  objgroup[i].name == "light.004" || objgroup[i].name == "light.005"){
+			if(objgroup[i].name == "light" || objgroup[i].name == "light001" || objgroup[i].name == "light002" || objgroup[i].name == "light003" ||
+			  objgroup[i].name == "light004" || objgroup[i].name == "light005"){
 			light1.push(objgroup[i]);
-			}else if(objgroup[i].name == "light.006" || objgroup[i].name == "light.007" || objgroup[i].name == "light.008" || objgroup[i].name == "light.009" ||
-				objgroup[i].name == "light.010" || objgroup[i].name == "light.011"){
+			}else if(objgroup[i].name == "light006" || objgroup[i].name == "light007" || objgroup[i].name == "light008" || objgroup[i].name == "light009" ||
+				objgroup[i].name == "light010" || objgroup[i].name == "light011"){
 				light2.push(objgroup[i]);
 			}
 			}
