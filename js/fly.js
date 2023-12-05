@@ -78,7 +78,7 @@
         let model,anime;
 	let gl,gl2,gl3,gl4,gl5 =[];
 	let objgroup = [];
-	let light1,light2 = [];
+	let light1 = [],light2 = [];
 	let doorclip,doorclip2,doormixer,doormixer2;
         loader.load(
             url,
