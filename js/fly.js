@@ -254,25 +254,29 @@
 			let lightcount2 = 0;
 			if(lightFlg && lightcount == 0){
 			for(i=0;i > light1.length; i++){
-			light1[i].object.material.emissive.setRGB(1,1,1);
+			light1[i].material.emissive.setRGB(1,1,1);
 			}
+			renderer.render(scene,camera);
 			lightcount = 1;
 			}else if(lightFlg && lightcount == 1){
 			for(i=0;i > light.length; i++){
-			light1[i].object.material.emissive.setRGB(0,0,0);
+			light1[i].material.emissive.setRGB(0,0,0);
 			}
+			renderer.render(scene,camera);
 			lightcount = 0;
 			}
 			    
 			if(lightFlg2 && lightcount2 == 0){
 			for(i=0;i > light2.length; i++){
-			light2[i].object.material.emissive.setRGB(1,1,1);
+			light2[i].material.emissive.setRGB(1,1,1);
 			}
+			renderer.render(scene,camera);
 			lightcount2 = 1;
 			}else if(lightFlg2 && lightcount2 == 1){
 			for(i=0;i > light2.length; i++){
-			light2[i].object.material.emissive.setRGB(0,0,0);
+			light2[i].material.emissive.setRGB(0,0,0);
 			}
+			renderer.render(scene,camera);
 			lightcount2 = 0;
 			}
 			    //const element =document.createElement('div'); 
