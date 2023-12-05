@@ -255,13 +255,13 @@
 
 			if(lightFlg && lightcount == 0){
 			for(i=0;i > light1.length; i++){
-			light1[i].object.material.emissive.setRGB(1,1,1);
+			light1[i].material.emissive.setRGB(1,1,1);
 			console.log(light1[i]);
 			}
 			lightcount = 1;
 			}else if(lightFlg && lightcount == 1){
 			for(i=0;i > light.length; i++){
-			light1[i].object.material.emissive.setRGB(0,0,0);
+			light1[i].material.emissive.setRGB(0,0,0);
 			console.log(light1[i]);
 			}
 			lightcount = 0;
