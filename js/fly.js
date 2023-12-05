@@ -205,9 +205,6 @@
         	let raycaster;
         	let doorFlg,door2Flg,door3Flg,door4Flg,lightFlg,lightFlg2 = false;
         	let moveFlg = false;
-		let count = 0;
-	     	let stoptime = null;
-		let cstoptime = 1000;
 	        let lightcount = 0;
 		let lightcount2 = 0;
 		mouse = new THREE.Vector2();
@@ -228,6 +225,9 @@
                     }
                     function handleClick(event){
 			function dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg){
+			let stoptime = null;
+			let cstoptime = 1000;
+			let count = 0;
 			const doormix = doormixer;
 			const doormix2 = doormixer2;
                         if(doorFlg){
@@ -455,7 +455,7 @@
                             lightFlg2 = false;
 		    }    
 		    }
-			if(doorFlg || lightFlg || lightFlg2){
+			if(doorFlg || door2Flg || door3Flg || door4Flg || lightFlg || lightFlg2){
     			canvas.style.cursor = 'pointer';
    			 }else{
     			canvas.style.cursor = 'grab';
