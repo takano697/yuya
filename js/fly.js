@@ -249,19 +249,19 @@
 				 
 				doorFlg=false;
                          }
-			//else{
-				//count = 0;
-                            //doorFlg = false;
-                       // }
+			else{
+				count = 0;
+                        	doorFlg = false;
+                        }
 
 			if(lightFlg){
-			for(i=0;i > light1.length; i++){
+			for(i=0;i < light1.length; i++){
 			light1[i].material.emissive.setRGB(1,1,1);
 			console.log(light1[i]);
 			}
 			lightcount = 1;
 			}else if(lightFlg && lightcount == 1){
-			for(i=0;i > light.length; i++){
+			for(i=0;i < light.length; i++){
 			light1[i].material.emissive.setRGB(0,0,0);
 			console.log(light1[i]);
 			}
@@ -269,12 +269,12 @@
 			}
 			    
 			if(lightFlg2){
-			for(i=0;i > light2.length; i++){
+			for(i=0;i < light2.length; i++){
 			light2[i].material.emissive.setRGB(1,1,1);
 			}
 			lightcount2 = 1;
 			}else if(lightFlg2 && lightcount2 == 1){
-			for(i=0;i > light2.length; i++){
+			for(i=0;i < light2.length; i++){
 			light2[i].material.emissive.setRGB(0,0,0);
 			}
 			lightcount2 = 0;
