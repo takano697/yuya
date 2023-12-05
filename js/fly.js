@@ -78,7 +78,7 @@
         let model,anime;
 	let gl,gl2,gl3,gl4,gl5 =[];
 	let objgroup = [];
-	let light,light2 = [];
+	let light1,light2 = [];
 	let doorclip,doorclip2,doormixer,doormixer2;
         loader.load(
             url,
@@ -148,7 +148,7 @@
 		    	for(i=0; i+1 <= objgroup.length; i++){
 			if(objgroup[i].name == "light" || objgroup[i].name == "light.001" || objgroup[i].name == "light.002" || objgroup[i].name == "light.003" ||
 			  objgroup[i].name == "light.004" || objgroup[i].name == "light.005"){
-			light.push(objgroup[i]);
+			light1.push(objgroup[i]);
 			}else if(objgroup[i].name == "light.006" || objgroup[i].name == "light.007" || objgroup[i].name == "light.008" || objgroup[i].name == "light.009" ||
 				objgroup[i].name == "light.010" || objgroup[i].name == "light.011"){
 				light2.push(objgroup[i]);
@@ -250,8 +250,8 @@
                         }
 			let lightcount,lightcount2 = 0;
 			if(lightFlg && lightcount == 0){
-			for(i=0;i > light.length; i++){
-			light[i].material.emissive.setRGB(1,1,1);
+			for(i=0;i > light1.length; i++){
+			light1[i].material.emissive.setRGB(1,1,1);
 			}
 			lightcount = 1;
 			}else if(lightFlg && lightcount == 1){
