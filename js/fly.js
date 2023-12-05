@@ -154,6 +154,8 @@
 				light2.push(objgroup[i]);
 			}
 			}
+		    console.log(light1);
+		    console.log(light2);
             },
              function (error) {
                 console.log('An error happened');
