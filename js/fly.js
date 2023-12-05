@@ -261,7 +261,7 @@
 			}
 			lightcount = 1;
 			}else if(lightFlg && lightcount == 1){
-			for(let i=0;i < light.length; i++){
+			for(let i=0;i < light1.length; i++){
 			light1[i].material.emissive.set(0,0,0);
 			console.log(light1[i]);
 			}
