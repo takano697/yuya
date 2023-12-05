@@ -248,10 +248,11 @@
 				count = 1;
 				 
 				doorFlg=false;
-                         }else{
-				count = 0;
-                            doorFlg = false;
-                        }
+                         }
+			//else{
+				//count = 0;
+                            //doorFlg = false;
+                       // }
 
 			if(lightFlg){
 			for(i=0;i > light1.length; i++){
