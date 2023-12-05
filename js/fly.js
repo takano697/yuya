@@ -262,7 +262,7 @@
 			lightcount = 1;
 			}else if(lightFlg && lightcount == 1){
 			for(i=0;i < light.length; i++){
-			light1[i].material.emissive.setRGB(0,0,0);
+			light1[i].material.emissive.set(0,0,0);
 			console.log(light1[i]);
 			}
 			lightcount = 0;
@@ -275,7 +275,7 @@
 			lightcount2 = 1;
 			}else if(lightFlg2 && lightcount2 == 1){
 			for(i=0;i < light2.length; i++){
-			light2[i].material.emissive.setRGB(0,0,0);
+			light2[i].material.emissive.set(0,0,0);
 			}
 			lightcount2 = 0;
 			}
