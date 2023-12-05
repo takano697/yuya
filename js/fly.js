@@ -256,7 +256,7 @@
 			lightcount = 1;
 			}else if(lightFlg && lightcount == 1){
 			for(i=0;i > light.length; i++){
-			light[i].material.emissive.setRGB(0,0,0);
+			light1[i].material.emissive.setRGB(0,0,0);
 			}
 			lightcount = 0;
 			}
