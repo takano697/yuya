@@ -254,7 +254,7 @@
                         	doorFlg = false;
                         }
 
-			if(lightFlg){
+			if(lightFlg && lightcount == 0){
 			for(i=0;i < light1.length; i++){
 			light1[i].material.emissive.setRGB(1,1,1);
 			console.log(light1[i]);
@@ -268,7 +268,7 @@
 			lightcount = 0;
 			}
 			    
-			if(lightFlg2){
+			if(lightFlg2 && lightcount2 == 0){
 			for(i=0;i < light2.length; i++){
 			light2[i].material.emissive.setRGB(1,1,1);
 			}
