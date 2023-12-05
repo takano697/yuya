@@ -187,6 +187,8 @@
 		let count = 0;
 	     	let stoptime = null;
 		let cstoptime = 1000;
+	        let lightcount = 0;
+		let lightcount2 = 0;
 		mouse = new THREE.Vector2();
         	raycaster = new THREE.Raycaster();
                 
@@ -250,8 +252,7 @@
 				count = 0;
                             doorFlg = false;
                         }
-			let lightcount = 0;
-			let lightcount2 = 0;
+
 			if(lightFlg && lightcount == 0){
 			for(i=0;i > light1.length; i++){
 			light1[i].object.material.emissive.setRGB(1,1,1);
