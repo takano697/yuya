@@ -253,7 +253,7 @@
                             doorFlg = false;
                         }
 
-			if(lightFlg && lightcount == 0){
+			if(lightFlg){
 			for(i=0;i > light1.length; i++){
 			light1[i].material.emissive.setRGB(1,1,1);
 			console.log(light1[i]);
@@ -271,13 +271,11 @@
 			for(i=0;i > light2.length; i++){
 			light2[i].material.emissive.setRGB(1,1,1);
 			}
-			renderer.render(scene,camera);
 			lightcount2 = 1;
 			}else if(lightFlg2 && lightcount2 == 1){
 			for(i=0;i > light2.length; i++){
 			light2[i].material.emissive.setRGB(0,0,0);
 			}
-			renderer.render(scene,camera);
 			lightcount2 = 0;
 			}
 			    //const element =document.createElement('div'); 
@@ -389,7 +387,7 @@
                         }else{
                             lightFlg = false;
 		    }
-		    if(obj.name == 'switch.001'){
+		    if(obj.name == 'switch001'){
                            if(moveFlg){
                             lightFlg2 = true;
                             }else{
