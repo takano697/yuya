@@ -213,10 +213,9 @@
 	        let cstoptime2 = 1000;
 	     	let cstoptime3 = 1000;
 	        let cstoptime4 = 1000;
-	        let timestamp,timestamp2,timestamp3,timestamp4,timestamp5,timestamp6,timestamp7,timestamp8;
-	        let ctimestamp,ctimestamp2,ctimestamp3,ctimestamp4,ctimestamp5,ctimestamp6,ctimestamp7,ctimestamp8;
 	        let lightcount = 0;
 		let lightcount2 = 0;
+	      	let count = 0;
 		mouse = new THREE.Vector2();
         	raycaster = new THREE.Raycaster();
                 
@@ -234,12 +233,8 @@
                         mouse.y = -(y/h)*2+1;
                     }
                     function handleClick(event){
-			function dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg,stoptime,cstoptime,timestamp,timestamp2,ctimestamp,ctimestamp2){
-			let count = 0;
-			const doormix = doormixer;
-			const doormix2 = doormixer2;
                         if(doorFlg){
-			function update(doormixer) {
+			function update() {
                     	if (doormixer) {
                         doormixer.update(clock.getDelta());
                     	}
@@ -254,11 +249,11 @@
 			if(stoptime > 2){
 				renderer.setAnimationLoop(null);
 			}
-			update(doormix);
+			update();
 			renderer.render(scene,camera);
 			});
 			}
-		        function update2(doormixer2) {
+		        function update2() {
                     		if (doormixer2) {
                        		 doormixer2.update(clock.getDelta());
                     			}
@@ -273,7 +268,7 @@
 				if(cstoptime > 2){
 				renderer.setAnimationLoop(null);
 				}
-				update2(doormix2);
+				update2();
 				renderer.render(scene,camera);
 				});
 				}
@@ -285,13 +280,9 @@
 				count = 0;
                         	doorFlg = false;
                         }
-			}
+			
 
-			dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg,stoptime,cstoptime,timestamp,timestamp2,ctimestamp,ctimestamp2);
-			dooraction(doormixer3,doormixer4,doorclip3,doorclip4,door2Flg,stoptime2,cstoptime2,timestamp3,timestamp4,ctimestamp3,ctimestamp4);
-			dooraction(doormixer5,doormixer6,doorclip5,doorclip6,door3Flg,stoptime3,cstoptime3,timestamp5,timestamp6,ctimestamp5,ctimestamp6);
-			dooraction(doormixer7,doormixer8,doorclip7,doorclip8,door4Flg,stoptime4,cstoptime4,timestamp7,timestamp8,ctimestamp7,ctimestamp8);
-			    
+
 			if(lightFlg && lightcount == 0){
 			for(let i=0;i < light1.length; i++){
 			light1[i].material.emissive.setRGB(1,1,1);
