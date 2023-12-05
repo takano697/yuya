@@ -80,6 +80,9 @@
 	let objgroup = [];
 	let light1 = [],light2 = [];
 	let doorclip,doorclip2,doormixer,doormixer2;
+	let doorclip3,doorclip4,doormixer3,doormixer4;
+	let doorclip5,doorclip6,doormixer5,doormixer6;
+	let doorclip7,doorclip8,doormixer7,doormixer8;
         loader.load(
             url,
             function (gltf) {
@@ -90,10 +93,28 @@
                 scene.add(gltf.scene, sphere);
 		doormixer = new THREE.AnimationMixer(model);
 		doormixer2 = new THREE.AnimationMixer(model);
+		doormixer3 = new THREE.AnimationMixer(model);
+		doormixer4 = new THREE.AnimationMixer(model);
+		doormixer5 = new THREE.AnimationMixer(model);
+		doormixer6 = new THREE.AnimationMixer(model);
+		doormixer7 = new THREE.AnimationMixer(model);
+		doormixer8 = new THREE.AnimationMixer(model);
 		doorclip =  THREE.AnimationClip.findByName( anime, 'Door_GroupOpen' );
 		doorclip2 =  THREE.AnimationClip.findByName( anime, 'Door_GroupClose' );
+		doorclip3 =  THREE.AnimationClip.findByName( anime, 'Door_Group.001Open' );
+		doorclip4 =  THREE.AnimationClip.findByName( anime, 'Door_Group.001Close' );
+		doorclip5 =  THREE.AnimationClip.findByName( anime, 'Door_Group.002Open' );
+		doorclip6 =  THREE.AnimationClip.findByName( anime, 'Door_Group.002Close' );
+		doorclip7 =  THREE.AnimationClip.findByName( anime, 'Door_Group.003Open' );
+		doorclip8 =  THREE.AnimationClip.findByName( anime, 'Door_Group.003Close' );
 		doormixer.clipAction(doorclip).play();　
 		doormixer2.clipAction(doorclip2).play();
+		doormixer3.clipAction(doorclip3).play();
+		doormixer4.clipAction(doorclip4).play();
+		doormixer5.clipAction(doorclip5).play();
+		doormixer6.clipAction(doorclip6).play();
+		doormixer7.clipAction(doorclip7).play();
+		doormixer8.clipAction(doorclip8).play();
 		    console.log(anime);
 		    console.log(scene.children);
 		    const sce =scene.children;
@@ -182,7 +203,7 @@
        	 	
 	    	let mouse;
         	let raycaster;
-        	let doorFlg,lightFlg,lightFlg2 = false;
+        	let doorFlg,door2Flg,door3Flg,door4Flg,lightFlg,lightFlg2 = false;
         	let moveFlg = false;
 		let count = 0;
 	     	let stoptime = null;
@@ -206,8 +227,11 @@
                         mouse.y = -(y/h)*2+1;
                     }
                     function handleClick(event){
+			function dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg){
+			const doormix = doormixer;
+			const doormix2 = doormixer2;
                         if(doorFlg){
-			function update() {
+			function update(doormixer) {
                     	if (doormixer) {
                         doormixer.update(clock.getDelta());
                     	}
@@ -222,11 +246,11 @@
 			if(stoptime > 2){
 				renderer.setAnimationLoop(null);
 			}
-			update();
+			update(doormix);
 			renderer.render(scene,camera);
 			});
 			}
-		        function update2() {
+		        function update2(doormixer2) {
                     		if (doormixer2) {
                        		 doormixer2.update(clock.getDelta());
                     			}
@@ -241,7 +265,7 @@
 				if(cstoptime > 2){
 				renderer.setAnimationLoop(null);
 				}
-				update2();
+				update2(doormix2);
 				renderer.render(scene,camera);
 				});
 				}
@@ -253,7 +277,13 @@
 				count = 0;
                         	doorFlg = false;
                         }
+			}
 
+			dooraction(doormixer,doormixer2,doorclip,doorclip2,doorFlg);
+			dooraction(doormixer3,doormixer4,doorclip3,doorclip4,door2Flg);
+			dooraction(doormixer5,doormixer6,doorclip5,doorclip6,door3Flg);
+			dooraction(doormixer7,doormixer8,doorclip7,doorclip8,door4Flg);
+			    
 			if(lightFlg && lightcount == 0){
 			for(let i=0;i < light1.length; i++){
 			light1[i].material.emissive.setRGB(1,1,1);
@@ -379,6 +409,33 @@
                         }else{ 
                             doorFlg = false;
 		    }
+	           if(obj.name == 'DoorFrame001' || obj.name == 'Door001_1' || obj.name == 'Door001_2' || obj.name == 'Handle_Back001' || obj.name == 'Handle_Front001'){
+                           if(moveFlg){
+                            door2Flg = true;
+                            }else{
+                                door2Flg = false;
+                                }
+                        }else{ 
+                            door2Flg = false;
+		    }
+	            if(obj.name == 'DoorFrame002' || obj.name == 'Door002_1' || obj.name == 'Door002_2' || obj.name == 'Handle_Back002' || obj.name == 'Handle_Front002'){
+                           if(moveFlg){
+                            door3Flg = true;
+                            }else{
+                                door3Flg = false;
+                                }
+                        }else{ 
+                            door3Flg = false;
+		    }
+	            if(obj.name == 'DoorFrame003' || obj.name == 'Door003_1' || obj.name == 'Door003_2' || obj.name == 'Handle_Back003' || obj.name == 'Handle_Front003'){
+                           if(moveFlg){
+                            door4Flg = true;
+                            }else{
+                                door4Flg = false;
+                                }
+                        }else{ 
+                            door4Flg = false;
+		    }		     
 		    if(obj.name == 'switch'){
                            if(moveFlg){
                             lightFlg = true;
