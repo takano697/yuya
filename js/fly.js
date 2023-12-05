@@ -205,8 +205,14 @@
         	let raycaster;
         	let doorFlg,door2Flg,door3Flg,door4Flg,lightFlg,lightFlg2 = false;
         	let moveFlg = false;
-	        let stoptime = stoptime2 = stoptime3 = stoptime4 = null;
-	        let cstoptime = cstoptime2 = cstoptime3 = cstoptime4 = 1000;
+	        let stoptime = null;
+		let stoptime2 = null; 
+		let stoptime3 = null; 
+		let stoptime4 = null;
+	        let cstoptime = 1000;
+	        let cstoptime2 = 1000;
+	     	let cstoptime3 = 1000;
+	        let cstoptime4 = 1000;
 	        let lightcount = 0;
 		let lightcount2 = 0;
 		mouse = new THREE.Vector2();
