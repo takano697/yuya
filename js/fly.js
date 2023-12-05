@@ -280,8 +280,147 @@
 				count = 0;
                         	doorFlg = false;
                         }
-			
-
+			 if(door2Flg){
+			function update() {
+                    	if (doormixer3) {
+                        doormixer3.update(clock.getDelta());
+                    	}
+                	}
+			if(cstoptime2 == 1000 || cstoptime2 >= 2){
+			cstoptime2 = null;
+			doormixer3.clipAction(doorclip3).reset();
+			let timestamp = Math.floor( Date.now() / 1000 );
+			renderer.setAnimationLoop(() => {
+			let timestamp2 = Math.floor( Date.now() / 1000 );
+			stoptime2 = timestamp2 - timestamp;
+			if(stoptime2 > 2){
+				renderer.setAnimationLoop(null);
+			}
+			update();
+			renderer.render(scene,camera);
+			});
+			}
+		        function update2() {
+                    		if (doormixer4) {
+                       		 doormixer4.update(clock.getDelta());
+                    			}
+                		}
+			        if(stoptime2 >= 2){
+				stoptime2 = null;
+				doormixer4.clipAction(doorclip4).reset();
+				let ctimestamp = Math.floor( Date.now() / 1000 );
+				renderer.setAnimationLoop(() => {
+				let ctimestamp2 = Math.floor( Date.now() / 1000 );
+				cstoptime2 = ctimestamp2 - ctimestamp;
+				if(cstoptime2 > 2){
+				renderer.setAnimationLoop(null);
+				}
+				update2();
+				renderer.render(scene,camera);
+				});
+				}
+				count = 1;
+				 
+				door2Flg=false;
+                         }
+			else{
+				count = 0;
+                        	door2Flg = false;
+                        }
+			 if(door3Flg){
+			function update() {
+                    	if (doormixer5) {
+                        doormixer5.update(clock.getDelta());
+                    	}
+                	}
+			if(cstoptime3 == 1000 || cstoptime3 >= 2){
+			cstoptime3 = null;
+			doormixer5.clipAction(doorclip5).reset();
+			let timestamp = Math.floor( Date.now() / 1000 );
+			renderer.setAnimationLoop(() => {
+			let timestamp2 = Math.floor( Date.now() / 1000 );
+			stoptime3 = timestamp2 - timestamp;
+			if(stoptime3 > 2){
+				renderer.setAnimationLoop(null);
+			}
+			update();
+			renderer.render(scene,camera);
+			});
+			}
+		        function update2() {
+                    		if (doormixer6) {
+                       		 doormixer6.update(clock.getDelta());
+                    			}
+                		}
+			        if(stoptime3 >= 2){
+				stoptime3 = null;
+				doormixer6.clipAction(doorclip6).reset();
+				let ctimestamp = Math.floor( Date.now() / 1000 );
+				renderer.setAnimationLoop(() => {
+				let ctimestamp2 = Math.floor( Date.now() / 1000 );
+				cstoptime3 = ctimestamp2 - ctimestamp;
+				if(cstoptime3 > 2){
+				renderer.setAnimationLoop(null);
+				}
+				update2();
+				renderer.render(scene,camera);
+				});
+				}
+				count = 1;
+				 
+				door3Flg=false;
+                         }
+			else{
+				count = 0;
+                        	door3Flg = false;
+                        }
+			 if(door4Flg){
+			function update() {
+                    	if (doormixer7) {
+                        doormixer7.update(clock.getDelta());
+                    	}
+                	}
+			if(cstoptime4 == 1000 || cstoptime4 >= 2){
+			cstoptime4 = null;
+			doormixer7.clipAction(doorclip7).reset();
+			let timestamp = Math.floor( Date.now() / 1000 );
+			renderer.setAnimationLoop(() => {
+			let timestamp2 = Math.floor( Date.now() / 1000 );
+			stoptime4 = timestamp2 - timestamp;
+			if(stoptime4 > 2){
+				renderer.setAnimationLoop(null);
+			}
+			update();
+			renderer.render(scene,camera);
+			});
+			}
+		        function update2() {
+                    		if (doormixer8) {
+                       		 doormixer8.update(clock.getDelta());
+                    			}
+                		}
+			        if(stoptime4 >= 2){
+				stoptime4 = null;
+				doormixer8.clipAction(doorclip8).reset();
+				let ctimestamp = Math.floor( Date.now() / 1000 );
+				renderer.setAnimationLoop(() => {
+				let ctimestamp2 = Math.floor( Date.now() / 1000 );
+				cstoptime4 = ctimestamp2 - ctimestamp;
+				if(cstoptime4 > 2){
+				renderer.setAnimationLoop(null);
+				}
+				update2();
+				renderer.render(scene,camera);
+				});
+				}
+				count = 1;
+				 
+				door4Flg=false;
+                         }
+			else{
+				count = 0;
+                        	door4Flg = false;
+                        }
 
 			if(lightFlg && lightcount == 0){
 			for(let i=0;i < light1.length; i++){
