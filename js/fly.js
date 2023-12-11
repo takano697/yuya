@@ -21,7 +21,7 @@
      
         // カメラを作成
         
-       camera = new THREE.PerspectiveCamera(90, width / height, 1, 100);
+       camera = new THREE.PerspectiveCamera(90, width / height, 1, 1000);
             
         camera.position.set(300, 250, 0);
 	//camera.rotation.order = "ZYX";
