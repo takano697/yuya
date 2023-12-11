@@ -5,7 +5,7 @@
         const renderer = new THREE.WebGLRenderer({
             canvas: document.querySelector('#canvas'),
             alpha: true,
-            //antialias: true,
+            antialias: true,
         });
         // ウィンドウサイズ設定
         width = document.getElementById('main_canvas').getBoundingClientRect().width;
@@ -221,6 +221,7 @@
 	    	let bottoncount = 0;
 	    	let pagecount = 0;
 	      	let count = 0;
+	    	let doorrock = false;
 		mouse = new THREE.Vector2();
         	raycaster = new THREE.Raycaster();
 
@@ -245,6 +246,35 @@
 				});
 				display.material.map.flipY = false;
 				pagecount = 2;
+			    }
+			    if((keycode == 49 || keycode == 50 || keycode == 52)&& pagecount == 2){
+			    	display.material = new THREE.MeshStandardMaterial({
+    				map: texture4
+				});
+				display.material.map.flipY = false;
+				pagecount = 4;
+			    }
+			     if(keycode == 51 && pagecount == 2){
+			    	display.material = new THREE.MeshStandardMaterial({
+    				map: texture3
+				});
+				display.material.map.flipY = false;
+				pagecount = 3;
+			    }
+			    if(keycode == 13 && pagecount == 3){
+			    	display.material = new THREE.MeshStandardMaterial({
+    				map: texture5
+				});
+				display.material.map.flipY = false;
+				doorrock = true;
+				pagecount = 5;
+			    }
+			    if(keycode == 13 && pagecount == 4){
+			    	display.material = new THREE.MeshStandardMaterial({
+    				map: texture1
+				});
+				display.material.map.flipY = false;
+				pagecount = 1;
 			    }
 		    }
 		    
@@ -353,6 +383,7 @@
 				count = 0;
                         	door2Flg = false;
                         }
+		if(doorrock){
 			 if(door3Flg){
 			function update() {
                     	if (doormixer5) {
@@ -447,6 +478,7 @@
 				count = 0;
                         	door4Flg = false;
                         }
+		}
 
 			if(lightFlg && lightcount == 0){
 			for(let i=0;i < light1.length; i++){
@@ -631,7 +663,7 @@
                         }else{
                             lightFlg2 = false;
 		    }    
-		     if(obj.name == 'botton' || obj.name == 'Cube115' || obj.name == 'Cube115_1'){
+		     if(obj.name == 'botton' /*|| obj.name == 'Cube115' || obj.name == 'Cube115_1'*/){
                            if(moveFlg){
                             bottonFlg = true;
                             }else{
