@@ -219,6 +219,7 @@
 	        let lightcount = 0;
 		let lightcount2 = 0;
 	    	let bottoncount = 0;
+	    	let pagecount = 0;
 	      	let count = 0;
 		mouse = new THREE.Vector2();
         	raycaster = new THREE.Raycaster();
@@ -232,8 +233,21 @@
 	    	const texture5 = texloader.load('quiz/102.JPG');
                 
 	    function setControll(){
+		    window.addEventListener('keyup',handleKeyup);
                     canvas.addEventListener('pointermove',handleMouseMove);
                     canvas.addEventListener('click',handleClick);
+
+	            function handleKeyup(event){
+		    	const keycode = event.keyCode;
+			    if(keycode == 13 && pagecount == 1){
+			    	display.material = new THREE.MeshStandardMaterial({
+    				map: texture2
+				});
+				display.material.map.flipY = false;
+				pagecount = 2;
+			    }
+		    }
+		    
                     function handleMouseMove(event){
                         moveFlg = true;
                         const element = event.currentTarget;
@@ -464,11 +478,13 @@
 			display.material = new THREE.MeshStandardMaterial({
     			map: texture1
 			});
-			//display.material.map.flipY = false;
+			display.material.map.flipY = false;
 			bottoncount = 1;
+			pagecount = 1;
 			}else if(bottonFlg && bottoncount == 1){
 			display.material = displaymate;
 			bottoncount = 0;
+			pagecount = 0;
 			}
 			    //const element =document.createElement('div'); 
 				//element.id = "info";
