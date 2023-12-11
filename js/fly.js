@@ -615,7 +615,7 @@
                         }else{
                             lightFlg2 = false;
 		    }    
-		     if(obj.name == 'botton' || obj.name == 'pc'){
+		     if(obj.name == 'botton' || obj.name == 'Cube115' || obj.name == 'Cube115_1'){
                            if(moveFlg){
                             bottonFlg = true;
                             }else{
