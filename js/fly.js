@@ -615,7 +615,7 @@
                         }else{
                             lightFlg2 = false;
 		    }    
-		     if(obj.name == 'botton'){
+		     if(obj.name == 'botton' || obj.name == 'pc'){
                            if(moveFlg){
                             bottonFlg = true;
                             }else{
