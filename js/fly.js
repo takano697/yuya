@@ -464,8 +464,7 @@
 			display.material = new THREE.MeshStandardMaterial({
     			map: texture1
 			});
-			display.material.map.flipY = false;
-			display.material.emissive.setRGB(1,1,1);
+			//display.material.map.flipY = false;
 			bottoncount = 1;
 			}else if(bottonFlg && bottoncount == 1){
 			display.material = displaymate;
