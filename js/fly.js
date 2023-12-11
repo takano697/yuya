@@ -75,7 +75,7 @@
 	    
 	    sphere.name ='sphere';
 	    
-        let model,anime;
+        let model,anime,display,displaymate;
 	let gl,gl2,gl3,gl4,gl5 =[];
 	let objgroup = [];
 	let light1 = [],light2 = [];
@@ -173,6 +173,9 @@
 			}else if(objgroup[i].name == "light006" || objgroup[i].name == "light007" || objgroup[i].name == "light008" || objgroup[i].name == "light009" ||
 				objgroup[i].name == "light010" || objgroup[i].name == "light011"){
 				light2.push(objgroup[i]);
+			}else if(objgroup[i].name == "Plane057_1"){
+				display = objgroup[i];
+				displaymate = display.material;
 			}
 			}
 		    console.log(light1);
@@ -203,7 +206,7 @@
        	 	
 	    	let mouse;
         	let raycaster;
-        	let doorFlg,door2Flg,door3Flg,door4Flg,lightFlg,lightFlg2 = false;
+        	let doorFlg,door2Flg,door3Flg,door4Flg,lightFlg,lightFlg2,bottonFlg = false;
         	let moveFlg = false;
 	        let stoptime = null;
 		let stoptime2 = null; 
@@ -215,9 +218,18 @@
 	        let cstoptime4 = 1000;
 	        let lightcount = 0;
 		let lightcount2 = 0;
+	    	let bottoncount = 0;
 	      	let count = 0;
 		mouse = new THREE.Vector2();
         	raycaster = new THREE.Raycaster();
+
+	       	//画像を読み込む
+		const texloader = new THREE.TextureLoader();
+		const texture1 = texloader.load('quiz/quiz1.JPG');
+	    	const texture2 = texloader.load('quiz/quiz2.JPG');
+	    	const texture3 = texloader.load('quiz/right.JPG');
+	    	const texture4 = texloader.load('quiz/hazure.JPG');
+	    	const texture5 = texloader.load('quiz/102.JPG');
                 
 	    function setControll(){
                     canvas.addEventListener('pointermove',handleMouseMove);
@@ -447,6 +459,17 @@
 			}
 			lightcount2 = 0;
 			}
+
+			if(bottonFlg && bottoncount == 0){
+			display.material = new THREE.MeshStandardMaterial({
+    			map: texture
+			});
+			display.material.map.flipY = false;
+			bottoncount = 1;
+			}else if(bottonFlg && bottoncount == 1){
+			display.material = displaymate;
+			bottoncount = 0;
+			}
 			    //const element =document.createElement('div'); 
 				//element.id = "info";
 				//element.innerHTML = "101情報教室<br>メディア情報系の授業を行う。"; 
@@ -592,8 +615,17 @@
                         }else{
                             lightFlg2 = false;
 		    }    
+		     if(obj.name == 'botton'){
+                           if(moveFlg){
+                            bottonFlg = true;
+                            }else{
+                                bottonFlg = false;
+                                }
+                        }else{
+                            bottonFlg = false;
+		    }    
 		    }
-			if(doorFlg || door2Flg || door3Flg || door4Flg || lightFlg || lightFlg2){
+			if(doorFlg || door2Flg || door3Flg || door4Flg || lightFlg || lightFlg2 || bottonFlg){
     			canvas.style.cursor = 'pointer';
    			 }else{
     			canvas.style.cursor = 'grab';
