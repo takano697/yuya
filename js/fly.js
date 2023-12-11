@@ -462,7 +462,7 @@
 
 			if(bottonFlg && bottoncount == 0){
 			display.material = new THREE.MeshStandardMaterial({
-    			map: texture
+    			map: texture1
 			});
 			display.material.map.flipY = false;
 			bottoncount = 1;
