@@ -173,7 +173,7 @@
 			}else if(objgroup[i].name == "light006" || objgroup[i].name == "light007" || objgroup[i].name == "light008" || objgroup[i].name == "light009" ||
 				objgroup[i].name == "light010" || objgroup[i].name == "light011"){
 				light2.push(objgroup[i]);
-			}else if(objgroup[i].name == "Plane057_1"){
+			}else if(objgroup[i].name == "display2"){
 				display = objgroup[i];
 				displaymate = display.material;
 			}
